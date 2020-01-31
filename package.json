@@ -2,10 +2,11 @@
   "name": "cold-notes",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "compile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "refreshNotes": "(git clone https://github.com/ColeyG/wiki.git notes; cd notes/; rm -rf .git)"
+    "refreshMyNotes": "(git clone https://github.com/ColeyG/wiki.git notes; cd notes/; rm -rf .git)",
+    "compileNotes": "node compile.js"
   },
   "keywords": [],
   "author": "",
