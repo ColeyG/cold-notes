@@ -1,5 +1,6 @@
 const showdown = require('showdown');
 const fs = require('fs');
+const rra = require('recursive-readdir-async');
 
 const converter = new showdown.Converter();
 
@@ -19,6 +20,6 @@ const writeHtml = (html) => {
   });
 };
 
-readMd('notes/readme.md').then((data) => {
-  writeHtml(data);
+rra.list('./notes/').then((list) => {
+  console.log(list);
 });

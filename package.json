@@ -13,5 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "showdown": "^1.9.1"
+  },
+  "dependencies": {
+    "recursive-readdir-async": "^1.1.6"
   }
 }
