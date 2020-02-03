@@ -6,15 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "refreshMyNotes": "(node src/refreshNotes.js; cd notes/; rm -rf .git)",
-    "compile": "node compile.js"
+    "compile": "node compile.js",
+    "serve": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "showdown": "^1.9.1"
+    "showdown": "^1.9.1",
+    "recursive-readdir-async": "^1.1.6"
   },
   "dependencies": {
-    "recursive-readdir-async": "^1.1.6"
+    "express": "^4.17.1",
+    "ejs": "~2.6.1",
+    "nodemon": "^2.0.2"
   }
 }
