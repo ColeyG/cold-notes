@@ -6,20 +6,41 @@ const converter = new showdown.Converter();
 
 const toHtml = (md) => converter.makeHtml(md);
 
+const ensureDirExists = (fileName) => new Promise((resolve, reject) => {
+  let path = fileName.split('/');
+  if (path.length >= 1) {
+    path.pop();
+    path = path.join('/');
+    fs.mkdir(path, { recursive: true }, (err) => {
+      if (err) throw err;
+      resolve();
+    });
+  } else {
+    resolve();
+  }
+});
+
 const readMd = async (file) => new Promise((resolve, reject) => {
   fs.readFile(file, 'utf8', (err, data) => {
     if (err) { reject(err); }
-    resolve(toHtml(data));
+    resolve(data);
   });
 });
 
-const writeHtml = (html) => {
-  const name = 'dummy.html';
-  fs.writeFile(`html/${name}`, html, (err) => {
-    if (err) throw err;
+const writeHtml = (name, html) => {
+  ensureDirExists(`html/${name}`).then(() => {
+    fs.writeFile(`html/${name}`, html, (err) => {
+      if (err) throw err;
+    });
   });
 };
 
 rra.list('./notes/').then((list) => {
-  console.log(list);
+  list.forEach((note) => {
+    const file = `notes${note.fullname.split('/notes')[1]}`;
+    readMd(file).then((md) => {
+      const newFileName = file.replace('notes/', '').replace('.md', '.html');
+      writeHtml(newFileName, toHtml(md));
+    });
+  });
 });
