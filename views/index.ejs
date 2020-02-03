@@ -6,10 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Super Charged Notes</title>
+  <link rel='stylesheet' href='/styles/main.css' />
 </head>
 
 <body>
 
+  <nav>
+    <ul class="nav-ul">
+      <% for(var i=0; i < nav.length; i++) { %>
+      <li class="<%= nav[i].type %>">
+        <p><%= nav[i].file %></p>
+      </li>
+      <% } %>
+    </ul>
+  </nav>
 </body>
 
 </html>
