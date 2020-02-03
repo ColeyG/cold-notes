@@ -2,3 +2,4 @@ notes/
 node_modules/
 html/*.html
 html/**/
+config.json
