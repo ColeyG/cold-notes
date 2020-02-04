@@ -5,18 +5,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Super Charged Notes</title>
+  <title><%= title %></title>
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono%7CUbuntu&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='/bundle.css' />
 </head>
 
 <body>
-
+  <h1 class="title"><%= title %></h1>
   <nav>
-    <ul class="nav-ul">
-      <% for(var i=0; i < nav.length; i++) { %>
-      <li class="<%= nav[i].type %>">
-        <p><%= nav[i].file %></p>
+    <ul class="nav-ul top">
+      <li>
+        <p>directories:</p>
       </li>
+      <% for(var i=0; i < nav.length; i++) { %>
+      <%if (nav[i].type == "dir") { %>
+      <li>
+        <a href="#"><%= nav[i].file %></a>
+      </li>
+      <% } %>
+      <% } %>
+    </ul>
+    <ul class="nav-ul bottom">
+      <li>
+        <p>files:</p>
+      </li>
+      <% for(var i=0; i < nav.length; i++) { %>
+      <%if (nav[i].type == "file") { %>
+      <li>
+        <a href="#"><%= nav[i].file %></a>
+      </li>
+      <% } %>
       <% } %>
     </ul>
   </nav>

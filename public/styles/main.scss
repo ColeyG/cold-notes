@@ -1,3 +1,56 @@
-html {
-  background-color: red;
+@import "./cold-lib.scss";
+
+$white: #fbfbf2;
+$black: #16161d;
+$blue: #12355b;
+$lavendar: #736ced;
+
+@mixin ubuntu($color: $black, $size: 12pt, $weight: normal) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  font-family: "Ubuntu", sans-serif;
+}
+
+@mixin space($color: $black, $size: 12pt, $weight: normal) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  font-family: "Space Mono", monospace;
+}
+
+h1 {
+  @include ubuntu($size: 32pt);
+  border-bottom: 2px solid $black;
+  margin-bottom: 10px;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  @include ubuntu();
+}
+
+a {
+  // border-bottom: 2px dashed $lavendar;
+  text-decoration: underline dotted $lavendar;
+}
+
+body {
+  padding: 30px;
+}
+
+.nav-ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  height: 30px;
+  li {
+    margin-right: 15px;
+  }
 }

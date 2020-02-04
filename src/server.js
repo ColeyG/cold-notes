@@ -31,5 +31,5 @@ const getTopLevelNav = () => {
 
 app.get('/', (req, res, next) => {
   res.status(200);
-  res.render('index', { nav: getTopLevelNav() });
+  res.render('index', { title: 'Cold Notes', nav: getTopLevelNav() });
 });
