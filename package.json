@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "refreshNotes": "(node src/refreshNotes.js; cd notes/; rm -rf .git)",
     "compile": "node compile.js",
-    "dev": "webpack --mode development",
+    "dev": "webpack --mode development --config config/webpack.config.js",
     "serve": "nodemon src/server.js"
   },
   "keywords": [],
